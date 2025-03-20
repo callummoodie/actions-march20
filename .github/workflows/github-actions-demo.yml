@@ -15,18 +15,15 @@ on:
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Output event name
+      - name: Output event and branch name
         run: |
           echo "Triggered by ${{ github.event_name }}"
-      - name: Output current branch
-        run: |
           echo "Current branch: ${{ github.ref_name }}
       - name: List all files in the repository
         run: |
-          ls -R
+          echo "The repo contains these files:"
+          tree
